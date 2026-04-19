@@ -1,58 +1,73 @@
-HELP.md
+# ===========================
+# Maven Build Output
+# ===========================
 target/
-.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### STS ###
+# ===========================
+# IDE — IntelliJ IDEA
+# ===========================
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# ===========================
+# IDE — Eclipse / STS
+# ===========================
 .apt_generated
 .classpath
 .factorypath
 .project
-.settings
+.settings/
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
+# ===========================
+# IDE — VS Code
+# ===========================
+.vscode/
+*.code-workspace
 
-### NetBeans ###
+# ===========================
+# IDE — NetBeans
+# ===========================
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
-.vscode/
-
-# Logs
-*.log
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Maven
-target/
-!.mvn/wrapper/maven-wrapper.jar
-
-# IDE - IntelliJ (in case someone uses it)
-.idea/
-*.iml
-
-# Environment files
+# ===========================
+# Spring Boot Configs (local overrides)
+# ===========================
+application-local.properties
+application-local.yml
+application-dev.properties
+application-dev.yml
+application-prod.properties
+application-prod.yml
+*.env
 .env
 
-# H2 database (if file-based later)
-*.mv.db
-*.trace.db
+# ===========================
+# Logs
+# ===========================
+*.log
+logs/
+spring.log
 
-# Class files
-.class
+# ===========================
+# OS Generated Files
+# ===========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
