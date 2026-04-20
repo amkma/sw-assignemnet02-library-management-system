@@ -101,6 +101,25 @@ All paths are relative to `http://localhost:8080`. All endpoints return appropri
 
 ---
 
+## 🧪 Testing with Postman (Recommended)
+
+A ready-to-use Postman collection is included in the repository:
+
+📄 **`Library Management System.postman_collection.json`**
+
+### How to Import and Run
+
+1. **Download & install** [Postman](https://www.postman.com/downloads/) if you don't have it already.
+2. **Open Postman** and click the **Import** button (top-left corner).
+3. **Drag and drop** the file `Library Management System.postman_collection.json` into the import window — or click **Upload Files** and browse to it inside the project folder.
+4. Click **Import** to confirm. The collection **"Library Management System"** will appear in your left sidebar under **Collections**.
+5. **Make sure the application is running** (`.\mvnw.cmd spring-boot:run` on Windows or `./mvnw spring-boot:run` on Linux/macOS).
+6. **Open any request** from the collection, then click the **Send** button to execute it.
+
+> **💡 Tip:** Run requests in order — start with creating Authors, then Books, then Members, then Borrow Records — because some endpoints depend on data created by earlier ones.
+
+---
+
 ## 🧪 Sample `curl` Commands
 
 ### Authors
