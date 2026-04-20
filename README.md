@@ -19,7 +19,7 @@ A RESTful API for a **Library Management System** built with **Spring Boot** and
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/amkma/sw-assignemnet02-library-management-system
 cd sw-assignemnet02-library-management-system
 
 # Build and run (Linux/macOS)
@@ -118,107 +118,6 @@ A ready-to-use Postman collection is included in the repository:
 
 > **💡 Tip:** Run requests in order — start with creating Authors, then Books, then Members, then Borrow Records — because some endpoints depend on data created by earlier ones.
 
----
-
-## 🧪 Sample `curl` Commands
-
-### Authors
-
-```bash
-# Create an author
-curl -X POST http://localhost:8080/api/authors \
-  -H "Content-Type: application/json" \
-  -d '{"firstName":"George","lastName":"Orwell","nationality":"British","birthDate":"1903-06-25"}'
-
-# Get all authors (paginated, sorted by lastName)
-curl http://localhost:8080/api/authors?page=0&size=10&sort=lastName,asc
-
-# Get author by ID
-curl http://localhost:8080/api/authors/1
-
-# Update an author
-curl -X PUT http://localhost:8080/api/authors/1 \
-  -H "Content-Type: application/json" \
-  -d '{"firstName":"George","lastName":"Orwell","nationality":"British","birthDate":"1903-06-25"}'
-
-# Delete an author
-curl -X DELETE http://localhost:8080/api/authors/1
-
-# Get all books by an author
-curl http://localhost:8080/api/authors/1/books
-```
-
-### Books
-
-```bash
-# Create a book (authorId must reference an existing author)
-curl -X POST http://localhost:8080/api/books \
-  -H "Content-Type: application/json" \
-  -d '{"title":"1984","isbn":"978-0451524935","genre":"Dystopian Fiction","publishedYear":1949,"authorId":1}'
-
-# Get all books (paginated)
-curl http://localhost:8080/api/books?page=0&size=10&sort=title,asc
-
-# Get book by ID (includes author details)
-curl http://localhost:8080/api/books/1
-
-# Update a book
-curl -X PUT http://localhost:8080/api/books/1 \
-  -H "Content-Type: application/json" \
-  -d '{"title":"1984","isbn":"978-0451524935","genre":"Dystopian Fiction","publishedYear":1949,"authorId":1}'
-
-# Delete a book
-curl -X DELETE http://localhost:8080/api/books/1
-
-# Search books by title, genre, and/or publishedYear
-curl "http://localhost:8080/api/books/search?title=1984&genre=Dystopian Fiction&publishedYear=1949"
-```
-
-### Members
-
-```bash
-# Register a new member (membershipDate is auto-set)
-curl -X POST http://localhost:8080/api/members \
-  -H "Content-Type: application/json" \
-  -d '{"firstName":"Ahmed","lastName":"Hassan","email":"ahmed@example.com","phoneNumber":"+20123456789"}'
-
-# Get all members (paginated)
-curl http://localhost:8080/api/members?page=0&size=10
-
-# Get member by ID
-curl http://localhost:8080/api/members/1
-
-# Search members by name
-curl "http://localhost:8080/api/members/search?name=Ahmed"
-
-# Update a member
-curl -X PUT http://localhost:8080/api/members/1 \
-  -H "Content-Type: application/json" \
-  -d '{"firstName":"Ahmed","lastName":"Hassan","email":"ahmed@example.com","phoneNumber":"+20198765432"}'
-
-# Delete a member
-curl -X DELETE http://localhost:8080/api/members/1
-```
-
-### Borrow Records
-
-```bash
-# Borrow a book (creates a borrow record; returns 409 if already borrowed)
-curl -X POST http://localhost:8080/api/borrow-records \
-  -H "Content-Type: application/json" \
-  -d '{"bookId":1,"memberId":1}'
-
-# Return a book (sets returnDate to today)
-curl -X PUT http://localhost:8080/api/borrow-records/1/return
-
-# Get all borrow records for a specific member
-curl http://localhost:8080/api/borrow-records/member/1
-
-# Get all currently borrowed books (active borrows)
-curl http://localhost:8080/api/borrow-records/active
-```
-
----
 
 ## 🔍 N+1 Analysis
 
